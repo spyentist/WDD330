@@ -1,0 +1,90 @@
+:root {
+    --background-color: #0B0C10;
+    --text-color: #66FCF1;
+    --accent1-color: #1F2833;
+    --link-color: #C5C6C7;
+    --accent2-color: #45129E;
+
+}
+
+html {
+    background-color: var(--background-color);
+    color:var(--text-color);
+}
+
+body {
+    background-color: var(--background-color);
+    max-width:700px;
+    align-items: center;
+    margin: 0 auto;
+    font-family: 'Orbitron', cursive;
+}
+
+header {
+    background-color: var(--accent1-color);
+    color: var(--text-color);
+    text-align: center;
+}
+
+
+header h1 {
+    font-size:3em;
+    font-family: 'Girassol';
+    padding: 20px;
+}
+
+.profilepic{
+    width:120px;
+    filter: grayscale(50%);
+    padding: 10px;
+}
+
+main {
+    margin-left:20px;
+}
+
+hr {
+    background-color: var(--accent2-color);
+    color: var(--accent2-color);
+}
+
+a {
+    text-decoration-color: var(--link-color);
+    color: var(--link-color);
+}
+
+footer {
+    background-color: var(--accent1-color);
+    /* height: 75px; */
+    color: var(--text-color);
+    text-align:center;
+
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: none;
+}
+
+nav ul li:first-child {
+    display:block;
+}
+
+nav ul li a {
+    display: block;
+    padding: 10px;
+}
+
+#updateDate {
+    margin-top: 0px;
+    font-size: .75em;
+}
+
+.open {
+    display: block;
+}
