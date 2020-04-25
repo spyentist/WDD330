@@ -1,11 +1,28 @@
-:root {
+/* :root {
     --background-color: #0B0C10;
     --text-color: #66FCF1;
     --accent1-color: #1F2833;
     --link-color: #C5C6C7;
     --accent2-color: #45129E;
 
+} */
+/* 
+:root {
+    --background-color: #1A1A1D;
+    --text-color: #C3073F;
+    --accent1-color: #950740;
+    --link-color: #4E4E50;
+    --accent2-color: #6F2232;
+} */
+
+:root {
+    --background-color: #61892F;
+    --text-color: #86C232;
+    --accent1-color: #474B4F;
+    --link-color: #222629;
+    --accent2-color: #6B6E70;
 }
+
 
 html {
     background-color: var(--background-color);
@@ -85,6 +102,6 @@ nav ul li a {
     font-size: .75em;
 }
 
-.open {
+.open li {
     display: block;
 }
