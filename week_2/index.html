@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 2</title>
+</head>
+<body>
+    <header>
+        <h1>Week 2</h1>
+    </header>
+    <main>
+        <h2>Looping</h2>
+        <h3>While loop</h3>
+        <button onclick="bottles()">99 Bottles</button>
+        <button onclick="bottleReset()">Reset</button>
+        <div id="bottle_result"></div>
+        <h3>Do While loop</h3>
+        <button id="liftOff">Lift Off!</button>
+        <button onclick="liftOffReset()">Reset</button>
+        <div id="liftOff_result"></div>
+        <h3>For loop</h3>
+        <button onclick="counting()">Count</button>
+        <button onclick="countingReset()">Reset</button>
+        <div id="counting_result"></div>
+
+
+        <h2>Different function declarations</h2>
+        <code>
+            function bottles() {
+                let bottles = 99;
+                while (bottles > 0) {
+                    console.log("I'm here");
+                    document.getElementById('bottle_result').innerHTML += bottles + " bottles of beer on the wall, " + bottles + " bottles of beer on the wall, take one down, pass it around. " + (bottles-1) + " bottles of beer on the wall. <br />";
+                    bottles--;
+                }
+            }
+            
+            function bottleReset () {
+                document.getElementById('bottle_result').innerHTML = "";
+            }
+            
+            var liftoff = function() {
+                var countdown = 10;
+                do {
+                    document.getElementById("liftOff_result").innerHTML += countdown + '<br />';
+                    countdown--;
+                } while (countdown > 0)
+            }
+            
+            document.getElementById('liftOff').addEventListener('click', liftoff);
+            
+            liftOffReset = () => {
+                document.getElementById("liftOff_result").innerHTML = "";
+            }
+            
+            function counting() {
+                for(let i = 1; i <= 25; i++) {
+                    document.getElementById('counting_result').innerHTML += i + '<br />';
+                }
+            }
+            
+            countingReset = () => {
+                document.getElementById('counting_result').innerHTML = "";
+            }
+            
+        </code>
+    </main>
+    <footer>
+        
+    </footer>
+</body>
+<script src="scripts/main.js"></script>
+</html>
