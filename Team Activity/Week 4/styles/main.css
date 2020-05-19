@@ -1,0 +1,41 @@
+body  {
+  background-color: slateblue;
+  color: white;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  border-spacing: 0;
+  width: 90px;
+  height: 90px;
+}
+
+
+table tr:nth-child(2) {
+  border-top: 1px solid black;
+  border-color: black;
+}
+
+table tr:nth-child(3) {
+  border-top: 1px solid black;
+  border-color: black;
+}
+
+table tr td {
+  margin: 0;
+  padding: 25px;
+  border-collapse: collapse;
+
+}
+
+table tr td:nth-child(2) {
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+}
+
+#reset {
+  color: black;
+  background-color: lightskyblue;
+}
