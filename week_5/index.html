@@ -30,8 +30,45 @@
       </ul>
     </nav>
     <main>
+        <h1>Chapter 10: Testing and Debugging</h1>
 
-        
+        <ul>
+            <li>Stack Tracing shows errors and where the error can be located even if executed by other functions.</li>
+            <li><code>
+                function three(){ unicorn(); }
+                <br>
+                function two(){ three(); }
+                <br>
+                function one(){ two(); }
+                <br>
+                one();
+                <br>
+                << index.html:13 Uncaught ReferenceError: unicorn is not defined
+                    at three (index.html:13)
+                    at two (index.html:17)
+                    at one (index.html:21)
+                    at index.html:24</code></li>
+        </ul>
+        <ul>
+            <li>Strict Mode:</li>
+            <li>produces more exceptions and warnings</li>
+            <li>prohibits the use of some deprecated features</li>
+            <li>considers coding practices that were previously accepted as just being 'poor style' as actual errors.</li>
+            <li>Syntax to enable is ''use strict';'</li>
+            <li>Works in files or in specific functions</li>
+        </ul>
+        <ul>
+            <li>Debugging</li>
+            <li>Alerts - display a message or alert with certain information.</li>
+            <li>Console - .log or .table are useful to see certain information.</li>
+            <li>debugger; - pauses the execution of scripts and enters the debugger mode for the browser.</li>
+        </ul>
+        <ul>
+            <li>Errors</li>
+            <li>You can create your own error messages</li>
+            <li>const error = new Error('Oops, something went wrong');</li>
+        </ul>
+        <h3>Team Activity <a href="../Team Activity/Week 5/index.html">Here</a></h3>
     </main>
     <footer>
         
