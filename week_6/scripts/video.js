@@ -2,6 +2,7 @@ import { Todo } from './Todo.js'
 
 window.addEventListener('load', loadList());
 
+// DONE
 function clearlist() {
     document.querySelector('tbody').innerHTML = "";
 }
@@ -20,6 +21,8 @@ document.getElementById('add_item').addEventListener('click', function() {
     }
 )
 
+
+// DONE
 function detectDeleteAndCheck() {
 
 document.querySelectorAll('.delete').forEach(item => {
@@ -29,24 +32,13 @@ document.querySelectorAll('.delete').forEach(item => {
         removeToDo(parent);
         clearlist();
         loadList();
-    }
-})
-});
+}})});
 
 document.querySelectorAll('.check').forEach(item => {
     item.addEventListener('click', event => { {
-        console.log(item.parentElement.parentElement);
         parent = item.parentElement.parentElement;
         parent.classList.toggle('completed');
-        console.log('clicked');
-
-        console.log(parent.id);
-    
         let list = getLS();
-    
-        console.log(list.findIndex(x => x.Id == parent.id));
-        // console.log(list);
-        console.log(list[list.findIndex(x => x.Id == parent.id)].Completed);
         if (list[list.findIndex(x => x.Id == parent.id)].Completed) {
             list[list.findIndex(x => x.Id == parent.id)].Completed = false;
         } else {
@@ -54,10 +46,27 @@ document.querySelectorAll('.check').forEach(item => {
         }
         pushToLS(list);
     }
-})
-});
+})});
 
+document.querySelector('#all_filter').addEventListener('click', event => { {
+        parent = event.parentElement.parentElement;
+        console.log(parent);
+        document.querySelectorAll('hidden').classList.remove('hidden');
+
+
+        // .classList.toggle('hidden');
+}});
+
+
+
+document.querySelector('#completed_filter').addEventListener('click', event => { {
+        parent = event.parentElement.parentElement;
+        console.log(parent);
+        document.querySelectorAll('hidden').classList.toggle('hidden')
+
+    }});
 }
+
 
 // DONE
 function addToDo(todo){
@@ -116,7 +125,7 @@ function loadList() {
     detectDeleteAndCheck();
 }
 
-
+//DONE
 function removeToDo(element) {
 // debugger;
     let list = getLS();
