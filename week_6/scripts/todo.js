@@ -1,7 +1,7 @@
 export class Todo {
-    constructor(content, completed) {
+    constructor(content) {
         this.Id = Date.now(),
         this.Content = content,
-        this.Completed = completed
+        this.Completed = false
     }
 }
