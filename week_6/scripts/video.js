@@ -2,6 +2,10 @@ import { Todo } from './Todo.js'
 
 window.addEventListener('load', loadList());
 
+function clearlist() {
+    document.querySelector('tbody').innerHTML = "";
+}
+
 // debugger;
 document.getElementById('add_item').addEventListener('click', function() {
     let new_item = document.getElementById('input1').value;
@@ -23,6 +27,8 @@ document.querySelectorAll('.delete').forEach(item => {
         console.log(item.parentElement.id);
         parent = item.parentElement.id;
         removeToDo(parent);
+        clearlist();
+        loadList();
     }
 })
 });
@@ -40,8 +46,12 @@ document.querySelectorAll('.check').forEach(item => {
     
         console.log(list.findIndex(x => x.Id == parent.id));
         // console.log(list);
-        // console.log(item.parentElement.parentElement.id);
-        list[list.findIndex(x => x.Id == parent.id)].Completed = true;
+        console.log(list[list.findIndex(x => x.Id == parent.id)].Completed);
+        if (list[list.findIndex(x => x.Id == parent.id)].Completed) {
+            list[list.findIndex(x => x.Id == parent.id)].Completed = false;
+        } else {
+            list[list.findIndex(x => x.Id == parent.id)].Completed = true;
+        }
         pushToLS(list);
     }
 })
@@ -64,9 +74,9 @@ function addToDo(todo){
     console.log(todoList);
 
     todo.Completed ? done = " checked" : done = "";
-    todo.Completed ? css = 'class="completed"' : css  ="";
+    todo.Completed ? css = "completed" : css  ="";
 
-const item = `<tr id="${todo.Id}" ${css}>
+const item = `<tr id="${todo.Id}" class="${css}">
                 <td><input class="check" type='checkbox'${done}></td>
                 <td>${todo.Content}</td>
                 <td class="delete">&cross;</td>
@@ -84,15 +94,16 @@ detectDeleteAndCheck();
 function loadList() {
     let list = getLS();
 
-    let done;
+    let done, css;
 
     list.forEach(element => {
 
         if(element) {
 
         element.Completed ? done = " checked" : done = "";
+        element.Completed ? css = "completed" : css  ="";
 
-        const item = `<tr id="${element.Id}">
+        const item = `<tr id="${element.Id}" class="${css}">
                 <td><input class="check" type='checkbox'${done}></td>
                 <td>${element.Content}</td>
                 <td class="delete">&cross;</td>
