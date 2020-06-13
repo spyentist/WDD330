@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">.
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/main.css">
-    <title>Week 4</title>
+    <link rel="stylesheet" href="styles/w8.css">
+    <title>Week 8</title>
 </head>
 <body>
     <header>
-        <h1>Week 4</h1>
+        <h1>Week 8</h1>
     </header>
     <nav>
       <ul id="navigation">
@@ -30,8 +31,26 @@
       </ul>
     </nav>
     <main>
+        <h2>Transforming, Translations, and other animations</h2>
+        <p>This picture will be translated by 30 pixels to the right and 30 pixels towards the bottom on touch.</p>
+        <img src="http://placekitten.com/200/300" alt="random cat picture scaled to 200x300px" id="transform1">
+        <br>
+        <p>This picture will use scaling to show a smaller version of the picture on touch.</p>
+        <img src="http://placekitten.com/300/300" alt="random cat picture scaled to 300x300px" id="transform2">
+        <br>
+        <p>A great reference that I built using animations and translations is the home page for the website <a href="https://pricelessnomore.glitch.me/index.html">https://pricelessnomore.glitch.me</a></p>
+        <p>There you will find references to scaling, rotation, and hover effects. This is mainly a web friendly webstie but clicking on the pictures will result in the on hover effects.</p>
 
-        
+        <canvas id="myCanvas">
+            Canvas doesn't seem to work in your browser.
+        </canvas>
+
+        <p>Canvases allow for the manipulation of images, videos and text. They work to enhance or change color schemes and can be stored and viewed at later times.</p> 
+
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+            <circle cx="200" cy="200" r="175" fill="black"/>
+        </svg>
+        <p>SVG's are Scalable Vector Graphics, they are not based on pixel counts and when scaled to larger images the quality does not decrease. Above is an example of a black circle that can scale to any size.</p>
     </main>
     <footer>
         

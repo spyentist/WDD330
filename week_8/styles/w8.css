@@ -1,0 +1,10 @@
+.effective1 {
+    transform: translate(30px, 30px)
+}
+
+.effective2 {
+    transform: scale(.75)
+}
+
+#myCanvas {
+    border: 2px dashed black;

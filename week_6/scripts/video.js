@@ -26,13 +26,13 @@ document.getElementById('add_item').addEventListener('click', function() {
 function detectDeleteAndCheck() {
 
 document.querySelectorAll('.delete').forEach(item => {
-    item.addEventListener('click', event => { {
+    item.addEventListener('click', event => {
         console.log(item.parentElement.id);
         parent = item.parentElement.id;
         removeToDo(parent);
         clearlist();
         loadList();
-}})});
+    })});
 
 document.querySelectorAll('.check').forEach(item => {
     item.addEventListener('click', event => { {
