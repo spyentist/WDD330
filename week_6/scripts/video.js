@@ -37,7 +37,7 @@ document.querySelectorAll('.delete').forEach(item => {
 document.querySelectorAll('.check').forEach(item => {
     item.addEventListener('click', event => { {
         parent = item.parentElement.parentElement;
-        parent.classList.toggle('completed');
+        parent.classList.add('completed');
         let list = getLS();
         if (list[list.findIndex(x => x.Id == parent.id)].Completed) {
             list[list.findIndex(x => x.Id == parent.id)].Completed = false;
@@ -45,28 +45,38 @@ document.querySelectorAll('.check').forEach(item => {
             list[list.findIndex(x => x.Id == parent.id)].Completed = true;
         }
         pushToLS(list);
-    }
-})});
+    }})});
 
-document.querySelector('#all_filter').addEventListener('click', event => { {
-        parent = event.parentElement.parentElement;
-        console.log(parent);
-        document.querySelectorAll('hidden').classList.remove('hidden');
+document.querySelector('#all_filter').addEventListener('click', event => {
+    document.querySelectorAll('.check').forEach(item => {
+            parent = item.parentElement.parentElement;
+            if (parent.classList.contains('hidden')) {
+                parent.classList.remove('hidden');
+            }
+            console.log(parent)
+        })});
 
+    
+document.querySelector('#completed_filter').addEventListener('click', event => { 
+    document.querySelectorAll('.check').forEach(item => {
+            parent = item.parentElement.parentElement;
+            parent.classList.remove('hidden');
+            if (!parent.classList.contains('completed')) {
+                parent.classList.toggle('hidden');
+            }
+            console.log(parent)
+        })});
 
-        // .classList.toggle('hidden');
-}});
-
-
-
-document.querySelector('#completed_filter').addEventListener('click', event => { {
-        parent = event.parentElement.parentElement;
-        console.log(parent);
-        document.querySelectorAll('hidden').classList.toggle('hidden')
-
-    }});
+document.querySelector('#active_filter').addEventListener('click', event => { 
+    document.querySelectorAll('.check').forEach(item => {
+            parent = item.parentElement.parentElement;
+            parent.classList.remove('hidden');
+            if (parent.classList.contains('completed')) {
+                parent.classList.toggle('hidden');
+            }
+            console.log(parent)
+        })});
 }
-
 
 // DONE
 function addToDo(todo){
