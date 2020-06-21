@@ -31,11 +31,32 @@
     </nav>
     <main>
         <h4>This week's <a href="../Team Activity/Week 9/index.html">team activity</a></h4>
-        
+
+        <h4>BOM (or the Browser Object Model</h4>
+        <p>There is no standard for this model, but it is supported basically by just about every browser. The window object works with global variables and allows to check the values of those global variables using the window. syntax (ie. window.x == 6)</p>
+
+        <h4>Example of Window objects</h4>
+        <code>
+            alert('alert Hello');<br>
+            window.alert('Window alert Hello');<br>
+            confirm('This is a confirmation box');<br>
+            window.confirm('This is a confirmation box from the window');
+        </code>
+        <br>
+        <button id='windowObj'>Press me to see the previous code run</button>
+        <p>The code executes the same regardless of whether it was prefixed by a window or not.</p>
+
+        <h4>Windows opening windows</h4>
+        <code>const popup = window.open('https://spyentist.github.io/WDD330/','WDD 330 Portfolio','width=400,height=400,resizable=yes');</code>
+        <br>
+        <button id='windowWind'>Press me to see the previous code run</button>
+
+        <p>**Note for future reference, do NOT have over 5000 changes to a GitHub repository. VSCode stops working.... :(**</p>
     </main>
     <footer>
         
     </footer>
 </body>
 <script src="scripts/script.js"></script>
+<script src="scripts/w9.js"></script>
 </html>
