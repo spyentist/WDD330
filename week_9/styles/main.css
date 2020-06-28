@@ -29,12 +29,17 @@ html {
     color:var(--text-color);
 }
 
+code {
+    max-width: 500px;
+}
+
 body {
     background-color: var(--background-color);
     max-width:700px;
     align-items: center;
     margin: 0 auto;
     font-family: 'Orbitron', cursive;
+    padding-right: 1.5em;
 }
 
 header {

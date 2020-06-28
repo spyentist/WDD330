@@ -1,0 +1,48 @@
+:root {
+    --primary-color: #5A7F8B;
+    --background-color: #2D2D2D;
+    --accent-bkg: #68492A;
+    --accent1: #B98740;
+    --link: #2B4657;
+}
+
+
+body{
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    text-align: center;
+}
+
+a {
+    color: var(--link);
+}
+
+img {
+    width: 85%;
+}
+
+div {
+    height: 25px;
+    width:25px;
+    text-align: center;
+}
+
+#PrimaryColor {
+    background-color: var(--primary-color);
+}
+
+#SecondColor {
+    background-color: var(--background-color);
+}
+
+#TextColor {
+    background-color: var(--accent1);
+}
+
+#LinkColor {
+    background-color: var(--link);
+}
+
+#AccentColor {
+    background-color: var(--accent1);
+}
