@@ -1,0 +1,75 @@
+:root {
+    --primary-color: #5A7F8B;
+    --background-color: #2D2D2D;
+    --accent-bkg: #68492A;
+    --accent1: #B98740;
+    --link: #2B4657;
+}
+
+
+body{
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    text-align: center;
+}
+
+a {
+    color: var(--link);
+}
+
+.navigation {
+    text-align: center;
+}
+
+.navigation li:first-child {
+    display:block;
+}
+
+.navigation li {
+    display: none;
+}
+
+.respsonsive {
+    text-align: center;
+}
+
+.respsonsive li {
+    display:block;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto; 
+    font-size: x-large;
+}
+
+li {
+    padding: .3em 0 .3em 0;
+    text-align:center;
+}
+
+.btn {
+    background-color: var(--accent-bkg);
+    color: var(--accent1);
+    border-radius: 25px;
+    padding: 16px 28px;
+    text-align: center;
+    text-decoration: none;
+    margin: 4px 2px;
+    font-size: larger;
+  }
+
+button {
+    
+}
+
+
+input#right.btn.btn-page{
+    float:right
+}
+
+hr {
+    background-color: var(--accent-bkg);
+    border-color: var(--accent-bkg);
+}
