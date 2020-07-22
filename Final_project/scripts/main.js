@@ -1,7 +1,6 @@
 const url = "https://swapi.dev/api/";
 
 
-// debugger;
 
 function website (url, id) {
     fetch(url)
@@ -78,18 +77,19 @@ function viewIndiv(obj, id) {
 }
 
 let pagecount = 1
-let list = '';
+
 let count = 0;
 let div = document.getElementById('swapi');
 let span = document.createElement('span');
 let ul = document.createElement('ul');
-div.innerHTML = '';
+
 
 
 
 // Functional for the main viewPage list
 function viewPage(obj, id, r2d2) {
-
+	div.innerHTML = '';
+	let list = '';
 	div.appendChild(span);
 	span.appendChild(ul);
 	if (r2d2 != undefined) {
@@ -98,7 +98,7 @@ function viewPage(obj, id, r2d2) {
 
 		obj.forEach((x) => {
 			let chewy = (id =='films') ? x.title : x.name;
-			console.log('chewy', chewy, id, x.url);
+			// console.log('chewy', chewy, id, x.url);
 			let https = insertSecure(x.url)
 			
 			list += `
@@ -106,12 +106,12 @@ function viewPage(obj, id, r2d2) {
 			`;
 			count++;
 		});
-		console.log(r2d2.next);
+		// console.log(r2d2.next);
 		obj,r2d2 = website(r2d2, id)
 	}
 
 		ul.innerHTML = list;
-		// paginations(r2d2);
+		paginations(r2d2, id);
 		refreshData();
 }
 // DONE
@@ -129,21 +129,32 @@ function insertSecure(url) {
   Optional Idea:
     If the previous is null then don't show the left button
 */
-function paginations(r2d2)  {
+function paginations(r2d2, id)  {
   let arrows = document.getElementById('pagination');
-  console.log(r2d2.previous, r2d2.next);
-  let directions = `
+//   console.log(r2d2.previous, r2d2.next);
+  let left = `
     <a href="${r2d2.previous}">
-    <input class="btn btn-page" type="button" id="left" value="left"></input></a>
-    <a href="${r2d2.next}">
+    <input class="btn btn-page" type="button" id="left" value="left"></input></a>`
+ let right = `
+	<a href="${r2d2.next}">
     <input class="btn btn-page" type="button" id="right" value="right"></input></a>
   `;
+  if (r2d2.previous != null){arrows.innerHTML += left;}
+  if (r2d2.next != null){arrows.innerHTML +=right;}
+console.log('here')
+  document.getElementById('left').addEventListener('touchend', view(r2d2.previous, id))
+  document.getElementById('right').addEventListener('touchend', view(r2d2.next, id))
   arrows.innerHTML = directions;
   let addRemoveFavorite = `
     <a href=""><input class="btn btn-page" type="button" id="addFav" value="+"></input></a>
     <a href=""><input class="btn btn-page" type="button" id="removeFav" value="-"></input></a>
   `
-  arrows.innerHTML += addRemoveFavorite;
+arrows.innerHTML += addRemoveFavorite;
+
+}
+
+function addFavorite( ) {
+
 }
 
 
@@ -175,11 +186,32 @@ document.querySelectorAll('.links').forEach(item => {
 function refreshData(){
 document.querySelectorAll('.data').forEach(item => {
   item.addEventListener('touchend', event => { 
-      console.log(item.getAttribute('data-site'))
-	  let temp_url = item.getAttribute('data-site')
+      console.log(event.getAttribute('data-site'))
+	  let temp_url = event.getAttribute('data-site')
     //   console.log(item);
       website(temp_url, 'data');
   }
   )}); 
 
+}
+
+
+function getLS() {
+    let data = localStorage.getItem("SWAPI");
+    let todoList
+    if (data) {
+        todoList = JSON.parse(data);
+    } else {
+        todoList = [];
+    }
+    console.log(todoList);
+    return todoList;
+
+    
+}
+
+// DONE 
+function pushToLS(list) {
+    localStorage.setItem("SWAPI", JSON.stringify(list));
+    console.log('Local storage updated')
 }
