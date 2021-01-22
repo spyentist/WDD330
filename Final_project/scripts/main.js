@@ -64,7 +64,9 @@ function viewIndiv(obj, id) {
 	// name, model, vehicle_class, manufacturer, length, cost_in_credits, crew, passengers, max_atmoshpere_speed, cargo_capacity
 	Object.keys(obj).forEach((key/*:string*/) => {
 		if (obj[key] != undefined) {
-			if (key != 'created' && key != 'edited' & key != 'url') {
+			if (key == 'url'){
+				list += `<li class='hidden>${key}</li>`
+			} else 	if (key != 'created' && key != 'edited' & key != 'url') {
 				let value = obj[key]
 				list += `<li>${key.toLocaleUpperCase()}: </li><li>${value.toString().replace('_', ' ')}</li><br>`
 			} else {
@@ -107,7 +109,7 @@ function viewPage(obj, id, r2d2) {
 			count++;
 		});
 		// console.log(r2d2.next);
-		obj,r2d2 = website(r2d2, id)
+		// obj,r2d2 = website(r2d2, id)
 	}
 
 		ul.innerHTML = list;
@@ -131,25 +133,32 @@ function insertSecure(url) {
 */
 function paginations(r2d2, id)  {
   let arrows = document.getElementById('pagination');
+
+  arrows.innerHTML ='';
 //   console.log(r2d2.previous, r2d2.next);
-  let left = `
+
+
+  if (r2d2.previous != null){
+	let left = `
     <a href="${r2d2.previous}">
     <input class="btn btn-page" type="button" id="left" value="left"></input></a>`
- let right = `
+	arrows.innerHTML += left;  
+	document.getElementById('left').addEventListener('touchend', view(r2d2.previous, id))
+}
+  if (r2d2.next != null){
+	let right = `
 	<a href="${r2d2.next}">
     <input class="btn btn-page" type="button" id="right" value="right"></input></a>
   `;
-  if (r2d2.previous != null){arrows.innerHTML += left;}
-  if (r2d2.next != null){arrows.innerHTML +=right;}
-console.log('here')
-  document.getElementById('left').addEventListener('touchend', view(r2d2.previous, id))
-  document.getElementById('right').addEventListener('touchend', view(r2d2.next, id))
-  arrows.innerHTML = directions;
+	arrows.innerHTML +=right;
+	document.getElementById('right').addEventListener('touchend', view(r2d2.next, id))
+}
   let addRemoveFavorite = `
-    <a href=""><input class="btn btn-page" type="button" id="addFav" value="+"></input></a>
-    <a href=""><input class="btn btn-page" type="button" id="removeFav" value="-"></input></a>
+    <input class="btn btn-page" type="button" id="addFav" value="+"></input>
+    <input class="btn btn-page" type="button" id="removeFav" value="-"></input>
   `
-arrows.innerHTML += addRemoveFavorite;
+
+  arrows.innerHTML += addRemoveFavorite;
 
 }
 
@@ -186,12 +195,15 @@ document.querySelectorAll('.links').forEach(item => {
 function refreshData(){
 document.querySelectorAll('.data').forEach(item => {
   item.addEventListener('touchend', event => { 
-      console.log(event.getAttribute('data-site'))
-	  let temp_url = event.getAttribute('data-site')
-    //   console.log(item);
+	  let temp_url = item.getAttribute('data-site')
       website(temp_url, 'data');
   }
   )}); 
+
+  document.getElementById('addFav').addEventListener('touchend', event =>{
+	  console.log('addFav')
+	  console.log()
+  })
 
 }
 
@@ -215,3 +227,24 @@ function pushToLS(list) {
     localStorage.setItem("SWAPI", JSON.stringify(list));
     console.log('Local storage updated')
 }
+
+//DONE
+function removeFavorite(element) {
+	// debugger;
+		let list = getLS();
+	
+		// console.log(list.Id.find(element));
+	
+		console.log(list.findIndex(x => x.Id == element));
+	
+		// delete list[list.findIndex(x => x.Id == element)];
+	
+		list.splice(list.findIndex(x => x.Id == element), 1);
+	
+	
+	
+		pushToLS(list);
+	
+		detectDeleteAndCheck();
+	
+	}

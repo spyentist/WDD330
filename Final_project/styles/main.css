@@ -74,3 +74,7 @@ hr {
     background-color: var(--accent-bkg);
     border-color: var(--accent-bkg);
 }
+
+.hidden {
+    display:none;
+}
